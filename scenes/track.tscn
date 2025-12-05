@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://g057stfiyijf"]
+
+[ext_resource type="Script" uid="uid://behb1jnn6nxir" path="res://scripts/track.gd" id="1_a7tuf"]
+[ext_resource type="PackedScene" uid="uid://dtm7oylwbtckm" path="res://scenes/start.tscn" id="2_cb0s1"]
+[ext_resource type="PackedScene" uid="uid://cgfmfu8cbr0mh" path="res://scenes/finish.tscn" id="3_idyj8"]
+
+[node name="track" type="Node3D"]
+script = ExtResource("1_a7tuf")
+
+[node name="start" parent="." instance=ExtResource("2_cb0s1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019204631, 0, 1.9560211)
+
+[node name="finish" parent="." instance=ExtResource("3_idyj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10088682, 0, -4.4905024)
+
+[node name="map" type="GridMap" parent="."]
+
+[node name="props" type="Node3D" parent="."]
