@@ -1,11 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://g057stfiyijf"]
+[gd_scene load_steps=9 format=3 uid="uid://g057stfiyijf"]
 
 [ext_resource type="Script" uid="uid://behb1jnn6nxir" path="res://scripts/track.gd" id="1_a7tuf"]
 [ext_resource type="PackedScene" uid="uid://dtm7oylwbtckm" path="res://scenes/start.tscn" id="2_cb0s1"]
 [ext_resource type="PackedScene" uid="uid://cgfmfu8cbr0mh" path="res://scenes/finish.tscn" id="3_idyj8"]
+[ext_resource type="MeshLibrary" uid="uid://ba8gypnmju5t5" path="res://resources/road_tiles_tileset.tres" id="4_idyj8"]
+[ext_resource type="PackedScene" uid="uid://dash74ua3s26s" path="res://scenes/car.tscn" id="5_1b4qh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_idyj8"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_1b4qh"]
+sky_material = SubResource("ProceduralSkyMaterial_idyj8")
+
+[sub_resource type="Environment" id="Environment_qcf88"]
+background_mode = 2
+sky = SubResource("Sky_1b4qh")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="track" type="Node3D"]
 script = ExtResource("1_a7tuf")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qcf88")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="start" parent="." instance=ExtResource("2_cb0s1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019204631, 0, 1.9560211)
@@ -14,5 +36,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019204631, 0, 1.9560211)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10088682, 0, -4.4905024)
 
 [node name="map" type="GridMap" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+mesh_library = ExtResource("4_idyj8")
+cell_size = Vector3(2, 1, 2)
+data = {
+"cells": PackedInt32Array(4, 65534, 0, 4, 65532, 0, 4, 65530, 5, 2, 65530, 7, 4, 65528, 7, 2, 65528, 7, 0, 65528, 1441793, 2, 65526, 1048577, 0, 65526, 1048577, 65534, 65526, 1048577, 65534, 65528, 1441793, 65532, 65526, 1048583, 65532, 65528, 1048583, 65540, 65526, 1048583, 65538, 65524, 1048583, 65536, 65524, 1048583, 131070, 65524, 1048583, 131068, 65524, 1048583, 131066, 65526, 1048583, 131066, 65528, 1048583, 131068, 65530, 1048583, 131070, 65530, 1048583, 65536, 65530, 1048583, 65538, 65532, 1048583, 65538, 65534, 1048583, 65542, 65528, 1048583, 65542, 65530, 1048583, 65542, 65532, 1048583, 65542, 65534, 1048583, 65544, 65534, 1048584, 65544, 65532, 1048584, 65544, 65530, 1048584, 65544, 65528, 1048584, 65542, 65526, 1048584, 65540, 65524, 1048584, 131068, 65522, 1048584, 131070, 65522, 1048584, 65536, 65522, 1048584, 65538, 65522, 1048584, 131066, 65524, 1048584, 131064, 65526, 1048584, 131064, 65528, 1048584, 131066, 65530, 1048584, 131068, 65532, 1048584, 131070, 65532, 1048584, 65536, 65532, 1048584, 65536, 65534, 1048584, 131080, 65532, 1048584, 131078, 65526, 1048584, 131076, 65524, 1048584, 131072, 65522, 1048584, 196602, 65524, 1048584, 196604, 65532, 1048584, 131080, 65534, 1048583, 131080, 65530, 1048583, 131080, 65528, 1048583, 131074, 65522, 1048583, 196606, 65522, 1048583, 196604, 65522, 1048583, 196600, 65526, 1048583, 196600, 65528, 1048583, 196602, 65530, 1048583, 196606, 65532, 1048583, 131072, 65532, 1048583, 131072, 65534, 1048583, 196616, 65532, 1048583, 196614, 65526, 1048583, 196612, 65524, 1048583, 196608, 65522, 1048583, 262138, 65524, 1048583, 262140, 65532, 1048583)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [node name="props" type="Node3D" parent="."]
+
+[node name="car" parent="." instance=ExtResource("5_1b4qh")]
+transform = Transform3D(-0.9999794, 0, -0.0064228647, 0, 1, 0, 0.0064228647, 0, -0.9999794, 28.030966, 8.90114, -4.034193)
