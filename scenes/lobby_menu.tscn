@@ -1,6 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bo8deyh47oh71"]
+[gd_scene load_steps=15 format=3 uid="uid://bo8deyh47oh71"]
 
+[ext_resource type="Script" uid="uid://cxl1sjscxibh8" path="res://scripts/lobby_menu.gd" id="1_411o8"]
 [ext_resource type="FontFile" uid="uid://d3m2yhtqc1b16" path="res://assets/RammettoOne-Regular.ttf" id="1_gk1co"]
+[ext_resource type="PackedScene" uid="uid://x8egq3pvy5dt" path="res://scenes/room_id_entry.tscn" id="3_7b8hf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_himm2"]
 bg_color = Color(1, 1, 1, 1)
@@ -10,12 +12,12 @@ corner_radius_bottom_left = 512
 [sub_resource type="Gradient" id="Gradient_7iria"]
 colors = PackedColorArray(1, 0.19999999, 0.19999999, 1, 1, 0.5, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gk1co"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7b8hf"]
 gradient = SubResource("Gradient_7iria")
 fill_to = Vector2(1, 0.53038675)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wyfym"]
-texture = SubResource("GradientTexture2D_gk1co")
+texture = SubResource("GradientTexture2D_7b8hf")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27qnf"]
 
@@ -43,6 +45,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_411o8")
 
 [node name="buttons" type="Control" parent="."]
 anchors_preset = 0
@@ -79,7 +82,7 @@ clip_contents = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_wyfym")
 
-[node name="Button" type="Button" parent="buttons/host_button"]
+[node name="host" type="Button" parent="buttons/host_button"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_27qnf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8sam6")
@@ -102,7 +105,7 @@ clip_contents = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_wyfym")
 
-[node name="Button" type="Button" parent="buttons/join_button"]
+[node name="join" type="Button" parent="buttons/join_button"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_27qnf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8sam6")
@@ -177,3 +180,10 @@ offset_bottom = 505.25
 text = "C R E D I T S"
 label_settings = SubResource("LabelSettings_lvinu")
 vertical_alignment = 1
+
+[node name="room_id_entry" parent="." instance=ExtResource("3_7b8hf")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="buttons/host_button/host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="buttons/join_button/join" to="." method="_on_join_pressed"]

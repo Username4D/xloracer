@@ -1,0 +1,112 @@
+[gd_scene load_steps=14 format=3 uid="uid://rpp0n4s6ng38"]
+
+[ext_resource type="Script" uid="uid://drvjbccvewhbg" path="res://scripts/disband_popup.gd" id="1_2axw6"]
+[ext_resource type="FontFile" uid="uid://d3m2yhtqc1b16" path="res://assets/RammettoOne-Regular.ttf" id="2_18dmr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxvr4"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_right = 512
+corner_radius_bottom_left = 512
+
+[sub_resource type="Gradient" id="Gradient_bqpnf"]
+colors = PackedColorArray(1, 0.19999999, 0.19999999, 1, 1, 0.5, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vl47l"]
+gradient = SubResource("Gradient_bqpnf")
+fill_to = Vector2(1, 0.53038675)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k7by4"]
+texture = SubResource("GradientTexture2D_vl47l")
+
+[sub_resource type="LabelSettings" id="LabelSettings_yorux"]
+font = ExtResource("2_18dmr")
+font_size = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nh4gb"]
+bg_color = Color(1, 1, 1, 0.39215687)
+corner_radius_top_right = 512
+corner_radius_bottom_left = 512
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gxvr4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqpnf"]
+bg_color = Color(1, 1, 1, 0.16862746)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vl47l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k7by4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yorux"]
+
+[node name="disband_popup" type="Control"]
+top_level = true
+visibility_layer = 2
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2axw6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.39607844)
+
+[node name="logo_panel" type="PanelContainer" parent="."]
+clip_children = 2
+clip_contents = true
+layout_mode = 0
+offset_left = 288.0
+offset_top = 224.0
+offset_right = 864.0
+offset_bottom = 416.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gxvr4")
+
+[node name="Panel" type="Panel" parent="logo_panel"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_k7by4")
+
+[node name="room_id" type="Label" parent="."]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 296.0
+offset_right = 880.0
+offset_bottom = 333.58334
+text = "LOBBY DISBANDED BY HOST"
+label_settings = SubResource("LabelSettings_yorux")
+vertical_alignment = 1
+
+[node name="room_id2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 352.0
+offset_right = 1168.0
+offset_bottom = 389.58334
+text = "RETURN"
+label_settings = SubResource("LabelSettings_yorux")
+vertical_alignment = 1
+
+[node name="host_button" type="PanelContainer" parent="."]
+clip_children = 2
+clip_contents = true
+layout_mode = 0
+offset_left = 584.0
+offset_top = 352.0
+offset_right = 840.0
+offset_bottom = 384.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nh4gb")
+
+[node name="host" type="Button" parent="host_button"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gxvr4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bqpnf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vl47l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k7by4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yorux")
+
+[connection signal="pressed" from="host_button/host" to="." method="_on_host_pressed"]

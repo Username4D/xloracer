@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg58htoq7uqcc"]
+
+[ext_resource type="Script" uid="uid://0odmvu4i18rn" path="res://scripts/ui_viewport.gd" id="1_du66d"]
+[ext_resource type="PackedScene" uid="uid://hawn5jik34iw" path="res://scenes/2d_bg.tscn" id="2_q28tr"]
+[ext_resource type="PackedScene" uid="uid://bo8deyh47oh71" path="res://scenes/lobby_menu.tscn" id="3_kn08c"]
+[ext_resource type="PackedScene" uid="uid://rpp0n4s6ng38" path="res://scenes/disband_popup.tscn" id="4_kn08c"]
+
+[node name="ui_viewport" type="Control" node_paths=PackedStringArray("current_scene")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_du66d")
+current_scene = NodePath("Control")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="2d_bg" parent="." instance=ExtResource("2_q28tr")]
+layout_mode = 1
+
+[node name="Control" parent="." instance=ExtResource("3_kn08c")]
+layout_mode = 1
+
+[node name="disband_popup" parent="." instance=ExtResource("4_kn08c")]
+visible = false
+layout_mode = 1

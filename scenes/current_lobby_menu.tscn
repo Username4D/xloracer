@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://blmurblukfdc1"]
+[gd_scene load_steps=19 format=3 uid="uid://blmurblukfdc1"]
 
+[ext_resource type="Script" uid="uid://bsiu5442edxy" path="res://scripts/current_lobby_menu.gd" id="1_03ps1"]
 [ext_resource type="FontFile" uid="uid://d3m2yhtqc1b16" path="res://assets/RammettoOne-Regular.ttf" id="1_pk0uv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03ps1"]
@@ -62,6 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_03ps1")
 
 [node name="logo_panel" type="PanelContainer" parent="."]
 clip_children = 2
@@ -173,3 +175,5 @@ offset_bottom = 539.25
 text = "B A C K"
 label_settings = SubResource("LabelSettings_jyjfl")
 vertical_alignment = 1
+
+[connection signal="pressed" from="back_button/Button" to="." method="_on_button_pressed"]
