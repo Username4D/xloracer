@@ -1,0 +1,299 @@
+[gd_scene load_steps=20 format=3 uid="uid://bo8deyh47oh71"]
+
+[ext_resource type="FontFile" uid="uid://d3m2yhtqc1b16" path="res://assets/RammettoOne-Regular.ttf" id="1_gk1co"]
+[ext_resource type="Texture2D" uid="uid://dv4fd82qb0iup" path="res://assets/particle.svg" id="2_411o8"]
+
+[sub_resource type="Gradient" id="Gradient_411o8"]
+colors = PackedColorArray(1, 0.3943333, 0.20999998, 1, 1, 0.7, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7b8hf"]
+gradient = SubResource("Gradient_411o8")
+fill_to = Vector2(1, 0.53038675)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7pkiv"]
+texture = SubResource("GradientTexture2D_7b8hf")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_himm2"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_right = 512
+corner_radius_bottom_left = 512
+
+[sub_resource type="Gradient" id="Gradient_7iria"]
+colors = PackedColorArray(1, 0.19999999, 0.19999999, 1, 1, 0.5, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ypv3t"]
+gradient = SubResource("Gradient_7iria")
+fill_to = Vector2(1, 0.53038675)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wyfym"]
+texture = SubResource("GradientTexture2D_ypv3t")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27qnf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sam6"]
+bg_color = Color(0, 0, 0, 0.16862746)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lycg7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mhw5d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xntih"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_obdq8"]
+font = ExtResource("1_gk1co")
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_lvinu"]
+font = ExtResource("1_gk1co")
+font_size = 30
+
+[sub_resource type="Curve" id="Curve_7b8hf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7pkiv"]
+curve = SubResource("Curve_7b8hf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_himm2"]
+particle_flag_disable_z = true
+gravity = Vector3(-8, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_7pkiv")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="Panel" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_right = 1160.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7pkiv")
+
+[node name="buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="logo_panel" type="PanelContainer" parent="buttons"]
+clip_children = 2
+clip_contents = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 576.0
+offset_bottom = 192.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_himm2")
+
+[node name="Panel" type="Panel" parent="buttons/logo_panel"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wyfym")
+
+[node name="host_button" type="PanelContainer" parent="buttons"]
+clip_children = 2
+clip_contents = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 384.0
+offset_bottom = 320.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_himm2")
+
+[node name="Panel" type="Panel" parent="buttons/host_button"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wyfym")
+
+[node name="Button" type="Button" parent="buttons/host_button"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_27qnf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8sam6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lycg7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mhw5d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xntih")
+
+[node name="join_button" type="PanelContainer" parent="buttons"]
+clip_children = 2
+clip_contents = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 352.0
+offset_right = 384.0
+offset_bottom = 416.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_himm2")
+
+[node name="Panel" type="Panel" parent="buttons/join_button"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wyfym")
+
+[node name="Button" type="Button" parent="buttons/join_button"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_27qnf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8sam6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lycg7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mhw5d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xntih")
+
+[node name="credits_button" type="PanelContainer" parent="buttons"]
+clip_children = 2
+clip_contents = true
+layout_mode = 0
+offset_left = 56.0
+offset_top = 448.0
+offset_right = 376.0
+offset_bottom = 512.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_himm2")
+
+[node name="Panel" type="Panel" parent="buttons/credits_button"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wyfym")
+
+[node name="Button" type="Button" parent="buttons/credits_button"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_27qnf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8sam6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lycg7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mhw5d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xntih")
+
+[node name="labels" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="logo_label" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 576.0
+offset_bottom = 192.0
+text = "O N L I N E"
+label_settings = SubResource("LabelSettings_obdq8")
+vertical_alignment = 1
+
+[node name="host_label" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 262.0
+offset_right = 384.0
+offset_bottom = 313.25
+text = "H O S T"
+label_settings = SubResource("LabelSettings_lvinu")
+vertical_alignment = 1
+
+[node name="join_label" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 358.0
+offset_right = 384.0
+offset_bottom = 409.25
+text = "J O I N"
+label_settings = SubResource("LabelSettings_lvinu")
+vertical_alignment = 1
+
+[node name="credits_label" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 454.0
+offset_right = 376.0
+offset_bottom = 505.25
+text = "C R E D I T S"
+label_settings = SubResource("LabelSettings_lvinu")
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0.27450982)
+anchors_preset = 0
+offset_left = 1184.0
+offset_top = 680.0
+offset_right = 1224.0
+offset_bottom = 720.0
+
+[node name="GPUParticles2D8" type="GPUParticles2D" parent="Control"]
+position = Vector2(32, -616)
+amount = 5
+texture = ExtResource("2_411o8")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_himm2")
+
+[node name="GPUParticles2D9" type="GPUParticles2D" parent="Control"]
+position = Vector2(96, -552)
+amount = 5
+texture = ExtResource("2_411o8")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_himm2")
+
+[node name="GPUParticles2D10" type="GPUParticles2D" parent="Control"]
+position = Vector2(32, -488)
+amount = 5
+texture = ExtResource("2_411o8")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_himm2")
+
+[node name="GPUParticles2D11" type="GPUParticles2D" parent="Control"]
+position = Vector2(96, -424)
+amount = 5
+texture = ExtResource("2_411o8")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_himm2")
+
+[node name="GPUParticles2D12" type="GPUParticles2D" parent="Control"]
+position = Vector2(32, -360)
+amount = 5
+texture = ExtResource("2_411o8")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_himm2")
+
+[node name="GPUParticles2D13" type="GPUParticles2D" parent="Control"]
+position = Vector2(96, -296)
+amount = 5
+texture = ExtResource("2_411o8")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_himm2")
+
+[node name="GPUParticles2D14" type="GPUParticles2D" parent="Control"]
+position = Vector2(32, -232)
+amount = 5
+texture = ExtResource("2_411o8")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_himm2")
+
+[node name="GPUParticles2D15" type="GPUParticles2D" parent="Control"]
+position = Vector2(96, -168)
+amount = 5
+texture = ExtResource("2_411o8")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_himm2")
+
+[node name="GPUParticles2D16" type="GPUParticles2D" parent="Control"]
+position = Vector2(32, -104)
+amount = 5
+texture = ExtResource("2_411o8")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_himm2")
+
+[node name="GPUParticles2D17" type="GPUParticles2D" parent="Control"]
+position = Vector2(96, -40)
+amount = 5
+texture = ExtResource("2_411o8")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_himm2")
