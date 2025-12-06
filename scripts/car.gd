@@ -27,8 +27,10 @@ func _physics_process(delta: float) -> void:
 	velocity.y -= .2
 	
 	move_and_slide()
-	if is_on_wall():
-		speed = move_toward(speed, 0, delta * 32)
+	for i in $wall_detection.get_overlapping_bodies():
+		if i.is_in_group("wall"):
+			print($wall_detection.get_overlapping_bodies()[0].name)
+			speed = move_toward(speed, 0, delta * 96)
 	if abs(speed) > 0:
 		if abs(speed) < 20:
 			self.rotation.y += steering * speed / -20 * delta + (delta * int(is_drifting) * drift_direction * -1)
@@ -36,6 +38,9 @@ func _physics_process(delta: float) -> void:
 			self.rotation.y += steering * 20 / -20* delta+ (delta * int(is_drifting) * drift_direction * -1)
 	
 	var distance = 1
+	
+	$"drift_particles/2".emitting = is_drifting and is_on_floor()
+	$"drift_particles/1".emitting = is_drifting and is_on_floor()
 	
 	if $RayCast3D.is_colliding():
 		distance = $RayCast3D.get_collision_point() - $RayCast3D.global_position
