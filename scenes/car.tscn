@@ -65,3 +65,9 @@ current = true
 transform = Transform3D(-9.934766e-08, 0, -1, 0, 1, 0, 1, 0, -9.934766e-08, 0, 0, 0.6)
 mesh = SubResource("ArrayMesh_50v30")
 skeleton = NodePath("")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 2, -4)
+collision_mask = 2
+hit_from_inside = true
+debug_shape_thickness = 3

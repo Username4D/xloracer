@@ -34,8 +34,16 @@ func _physics_process(delta: float) -> void:
 			self.rotation.y += steering * speed / -20 * delta + (delta * int(is_drifting) * drift_direction * -1)
 		else:
 			self.rotation.y += steering * 20 / -20* delta+ (delta * int(is_drifting) * drift_direction * -1)
-
+	
+	var distance = 1
+	
+	if $RayCast3D.is_colliding():
+		distance = $RayCast3D.get_collision_point() - $RayCast3D.global_position
+		distance = Vector3.ZERO.distance_to(distance) / Vector3.ZERO.distance_to(Vector3(0, 2, -4))
+	
+	$Camera3D.position = distance * Vector3(0, 2, -4)
+	
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_down") and speed > 10 and not is_drifting:
+	if Input.is_action_just_pressed("ui_down") and speed > 10 and not is_drifting and steering != 0:
 		drift_direction = steering / abs(steering)
 		is_drifting = true
