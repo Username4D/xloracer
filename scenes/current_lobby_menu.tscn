@@ -1,0 +1,175 @@
+[gd_scene load_steps=18 format=3 uid="uid://blmurblukfdc1"]
+
+[ext_resource type="FontFile" uid="uid://d3m2yhtqc1b16" path="res://assets/RammettoOne-Regular.ttf" id="1_pk0uv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03ps1"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_right = 512
+corner_radius_bottom_left = 512
+
+[sub_resource type="Gradient" id="Gradient_bbxs8"]
+colors = PackedColorArray(1, 0.19999999, 0.19999999, 1, 1, 0.5, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ypv3t"]
+gradient = SubResource("Gradient_bbxs8")
+fill_to = Vector2(1, 0.53038675)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3dbll"]
+texture = SubResource("GradientTexture2D_ypv3t")
+
+[sub_resource type="LabelSettings" id="LabelSettings_35lmi"]
+font = ExtResource("1_pk0uv")
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_8i1sa"]
+font = ExtResource("1_pk0uv")
+font_size = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5gjl"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_right = 512
+corner_radius_bottom_left = 512
+
+[sub_resource type="Gradient" id="Gradient_snhve"]
+colors = PackedColorArray(1, 0.19999999, 0.19999999, 1, 1, 0.5, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dalxe"]
+gradient = SubResource("Gradient_snhve")
+fill_to = Vector2(1, 0.53038675)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bnaqd"]
+texture = SubResource("GradientTexture2D_dalxe")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_34e8g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1s44"]
+bg_color = Color(0, 0, 0, 0.16862746)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvj2w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3lbxt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vf2tn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jyjfl"]
+font = ExtResource("1_pk0uv")
+font_size = 30
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="logo_panel" type="PanelContainer" parent="."]
+clip_children = 2
+clip_contents = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 576.0
+offset_bottom = 192.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_03ps1")
+
+[node name="Panel" type="Panel" parent="logo_panel"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3dbll")
+
+[node name="logo_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 66.0
+offset_right = 576.0
+offset_bottom = 189.0
+text = "L O B B Y"
+label_settings = SubResource("LabelSettings_35lmi")
+vertical_alignment = 1
+
+[node name="players_connected" type="Label" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 232.0
+offset_right = 526.0
+offset_bottom = 283.25
+text = "PLAYERS CONNECTED: 12"
+label_settings = SubResource("LabelSettings_8i1sa")
+vertical_alignment = 1
+
+[node name="room_id" type="Label" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 291.0
+offset_right = 526.0
+offset_bottom = 342.25
+text = "LOBBY ID: JHKGHF"
+label_settings = SubResource("LabelSettings_8i1sa")
+vertical_alignment = 1
+
+[node name="host_button" type="PanelContainer" parent="."]
+clip_children = 2
+clip_contents = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 384.0
+offset_right = 384.0
+offset_bottom = 448.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x5gjl")
+
+[node name="Panel" type="Panel" parent="host_button"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bnaqd")
+
+[node name="Button" type="Button" parent="host_button"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_34e8g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i1s44")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uvj2w")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3lbxt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vf2tn")
+
+[node name="back_button" type="PanelContainer" parent="."]
+clip_children = 2
+clip_contents = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 480.0
+offset_right = 384.0
+offset_bottom = 544.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x5gjl")
+
+[node name="Panel" type="Panel" parent="back_button"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bnaqd")
+
+[node name="Button" type="Button" parent="back_button"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_34e8g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i1s44")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uvj2w")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3lbxt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vf2tn")
+
+[node name="start_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 392.0
+offset_right = 384.0
+offset_bottom = 443.25
+text = "S T A R T"
+label_settings = SubResource("LabelSettings_jyjfl")
+vertical_alignment = 1
+
+[node name="back_label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 488.0
+offset_right = 384.0
+offset_bottom = 539.25
+text = "B A C K"
+label_settings = SubResource("LabelSettings_jyjfl")
+vertical_alignment = 1

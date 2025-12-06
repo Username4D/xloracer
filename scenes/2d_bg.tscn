@@ -1,0 +1,130 @@
+[gd_scene load_steps=8 format=3 uid="uid://hawn5jik34iw"]
+
+[ext_resource type="Texture2D" uid="uid://dv4fd82qb0iup" path="res://assets/particle.svg" id="1_2h13g"]
+
+[sub_resource type="Gradient" id="Gradient_7t4xf"]
+colors = PackedColorArray(1, 0.3943333, 0.20999998, 1, 1, 0.7, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wn0ap"]
+gradient = SubResource("Gradient_7t4xf")
+fill_to = Vector2(1, 0.53038675)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jkcqy"]
+texture = SubResource("GradientTexture2D_wn0ap")
+
+[sub_resource type="Curve" id="Curve_1wvtf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7pkiv"]
+curve = SubResource("Curve_1wvtf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8s015"]
+particle_flag_disable_z = true
+gravity = Vector3(-8, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_7pkiv")
+
+[node name="2d_bg" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="Panel" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_right = 1160.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jkcqy")
+
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0.27450982)
+anchors_preset = 0
+offset_left = 1184.0
+offset_top = 680.0
+offset_right = 1224.0
+offset_bottom = 720.0
+
+[node name="GPUParticles2D8" type="GPUParticles2D" parent="Control"]
+position = Vector2(32, -616)
+amount = 5
+texture = ExtResource("1_2h13g")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_8s015")
+
+[node name="GPUParticles2D9" type="GPUParticles2D" parent="Control"]
+position = Vector2(96, -552)
+amount = 5
+texture = ExtResource("1_2h13g")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_8s015")
+
+[node name="GPUParticles2D10" type="GPUParticles2D" parent="Control"]
+position = Vector2(32, -488)
+amount = 5
+texture = ExtResource("1_2h13g")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_8s015")
+
+[node name="GPUParticles2D11" type="GPUParticles2D" parent="Control"]
+position = Vector2(96, -424)
+amount = 5
+texture = ExtResource("1_2h13g")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_8s015")
+
+[node name="GPUParticles2D12" type="GPUParticles2D" parent="Control"]
+position = Vector2(32, -360)
+amount = 5
+texture = ExtResource("1_2h13g")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_8s015")
+
+[node name="GPUParticles2D13" type="GPUParticles2D" parent="Control"]
+position = Vector2(96, -296)
+amount = 5
+texture = ExtResource("1_2h13g")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_8s015")
+
+[node name="GPUParticles2D14" type="GPUParticles2D" parent="Control"]
+position = Vector2(32, -232)
+amount = 5
+texture = ExtResource("1_2h13g")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_8s015")
+
+[node name="GPUParticles2D15" type="GPUParticles2D" parent="Control"]
+position = Vector2(96, -168)
+amount = 5
+texture = ExtResource("1_2h13g")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_8s015")
+
+[node name="GPUParticles2D16" type="GPUParticles2D" parent="Control"]
+position = Vector2(32, -104)
+amount = 5
+texture = ExtResource("1_2h13g")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_8s015")
+
+[node name="GPUParticles2D17" type="GPUParticles2D" parent="Control"]
+position = Vector2(96, -40)
+amount = 5
+texture = ExtResource("1_2h13g")
+lifetime = 10.0
+visibility_rect = Rect2(-260.04, -100, 544.03, 349.41)
+process_material = SubResource("ParticleProcessMaterial_8s015")
